@@ -75,7 +75,7 @@ class AnimationProcessor:
             kept_frames = self.get_kept_frames(settings, self.keep_frames, single_frame)
             kept_frame_indices = self.get_kept_frame_indices(kept_frames, image_tuples)
             frames_generated += self.save_frames(image_tuples, kept_frame_indices, animation_name, scale)
-            if self.create_gif or self.create_webp:
+            if not single_frame and self.create_gif or self.create_webp:
                 anims_generated += self.save_animations(image_tuples, spritesheet_name, animation_name, settings, self.current_version)
         return frames_generated, anims_generated
 
